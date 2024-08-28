@@ -30,7 +30,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: msbuild SparkIO.sln -configuration Release
+      run: msbuild SparkIO.sln -property:Configuration=Release
 
     - name: Publish Nuget
       run: |
