@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -23,17 +23,30 @@ jobs:
 
     - name: Fetch tags
       run: git fetch --prune --unshallow --tags
-  
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet.exe for use with actions
+      uses: NuGet/setup-nuget@v2.0.0
+      with:
+        nuget-api-key: ${NUGET}          
+
+    - name: Setup NuGet
+      run: |
+        dotnet nuget update source nuget https://api.nuget.org/v3/index.json
+        dotnet nuget enable source nuget
+        
     - name: Install Maui Workload
       run: dotnet workload install maui --ignore-failed-sources
       
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet msbuild --no-restore
+      run: msbuild SparkIO.sln -property:Configuration=Release
 
     - name: Publish Nuget
       run: |
-        dotnet nuget push '**/*.nupkg' -k ${NUGET} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols
+        nuget push '**/*.nupkg' -source nuget --skip-duplicate --no-symbols
       env:
         NUGET: ${{ secrets.NUGET }}
