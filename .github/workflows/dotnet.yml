@@ -31,7 +31,12 @@ jobs:
       uses: NuGet/setup-nuget@v2.0.0
       with:
         nuget-api-key: ${NUGET}          
-  
+
+    - name: Setup NuGet
+      run: |
+        dotnet nuget update source nuget https://api.nuget.org/v3/index.json
+        dotnet nuget enable source nuget
+        
     - name: Install Maui Workload
       run: dotnet workload install maui --ignore-failed-sources
       
@@ -42,6 +47,6 @@ jobs:
 
     - name: Publish Nuget
       run: |
-        nuget push '**/*.nupkg' -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols
+        nuget push '**/*.nupkg' -source nuget --skip-duplicate --no-symbols
       env:
         NUGET: ${{ secrets.NUGET }}
