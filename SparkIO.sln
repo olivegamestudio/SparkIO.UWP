@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SparkIO.MonoGame.UWP", "src\SparkIO.MonoGame\SparkIO.MonoGame.UWP.csproj", "{B72C6B0D-594F-413D-926C-955876412C3E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7831C33B-E0D2-4C4F-8AF8-202B20FC0232}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B72C6B0D-594F-413D-926C-955876412C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72C6B0D-594F-413D-926C-955876412C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72C6B0D-594F-413D-926C-955876412C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72C6B0D-594F-413D-926C-955876412C3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A39E5CB-F600-44D2-A6E9-36B525961891}
+	EndGlobalSection
+EndGlobal
