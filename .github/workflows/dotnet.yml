@@ -30,7 +30,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet msbuild --no-restore
+      run: dotnet msbuild
 
     - name: Publish Nuget
       run: |
